@@ -1,8 +1,7 @@
-# DAY 69 of 100 -- Blog Capstone Final Version
+# Blog Deployment
 -----
 
-### Challenges
-- User resgitration
-- Admin Access
-- Object Relational Mapping (ORM)
-- Comments
+### Tools
+- Github
+- Heroku
+- Gunicon
