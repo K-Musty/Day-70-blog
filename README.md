@@ -3,5 +3,5 @@
 
 ### Tools
 - Github
-- Heroku
+- Railway (instead of heroku)
 - Gunicon
