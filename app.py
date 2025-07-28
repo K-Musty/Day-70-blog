@@ -113,6 +113,11 @@ login_manager.init_app(app)
 def load_user(user_id):
     return Users.query.get(int(user_id))
 
+@app.route('/init-db')
+def init_db():
+    with app.app_context():
+        db.create_all()
+    return "✅ PostgreSQL tables initialized successfully!"
 
 @app.route('/')
 def get_all_posts():
