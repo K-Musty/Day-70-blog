@@ -11,6 +11,7 @@ from functools import wraps
 from flask import abort
 import hashlib
 from urllib.parse import urlencode
+import os
 # from flask_gravatar import Gravatar
 
 
@@ -22,7 +23,11 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+uri = os.getenv("DATABASE_URL", "")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
